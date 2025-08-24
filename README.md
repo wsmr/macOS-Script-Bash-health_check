@@ -7,7 +7,7 @@
 A comprehensive, intelligent macOS system health monitoring script that provides actionable insights instead of just raw numbers.
 
 ## 📂 Repository Structure:
-```bash
+```
 macOS-Script-Bash-health_check/
 ├── macos_health_check.sh           (Main script)
 ├── README.md                       (Comprehensive documentation)  
