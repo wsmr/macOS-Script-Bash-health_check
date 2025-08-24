@@ -1,0 +1,96 @@
+🖥️  macOS Health Check Report
+Generated: Sun Aug 24 15:35:45 +0530 2025
+=========================================
+📊 System Overview
+macOS: 15.6.1
+Uptime: 3 days
+Load Averages: 12.28 (1m) 13.31 (5m) 11.34 (15m)
+CPU Cores: 8
+🚨 System Load: 153% (OVERLOADED - System struggling)
+   💡 Action: Identify heavy processes, consider restart if persistent
+RAM: 8 GB
+📊 Memory Pressure: 33% free (MEDIUM)
+   💡 Tip: Monitor memory usage, normal for active use
+Disk: 125Gi free of 460Gi (73% used) ✅
+
+🔥 CPU Usage Analysis (5-second average)
+Sampling processes for better accuracy...
+  PID USER              %CPU %MEM PROCESS
+52946 root             338.0  6.6 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+52567 root              58.6  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+57059 sahan             44.3  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+56994 sahan             43.0  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+57063 sahan             42.7  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+57061 sahan             34.4  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+56974 sahan             24.5  0.2 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+56958 sahan              8.4  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+57001 sahan              8.1  0.3 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  167 _windowserver      2.1  0.7 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+
+🔍 CPU Analysis:
+🚨 Highest CPU: mds_stores (338.0%) - EXTREMELY HIGH
+   💡 Action: Investigate this process, may need to quit/restart
+
+🔍 Spotlight Indexing Status
+Active Spotlight processes:
+  🔥 mds: 58.6% CPU (INTENSIVE INDEXING)
+  🔥 mds_stores: 338.0% CPU (INTENSIVE INDEXING)
+  ⚡ mdworker_shared: 44.3% CPU (ACTIVE INDEXING)
+  ⚡ mdworker_shared: 43.0% CPU (ACTIVE INDEXING)
+  ⚡ mdworker_shared: 42.7% CPU (ACTIVE INDEXING)
+  ⚡ mdworker_shared: 34.4% CPU (ACTIVE INDEXING)
+  ⚡ mdworker_shared: 24.5% CPU (ACTIVE INDEXING)
+  ✅ mdworker_shared: 8.4% CPU (LIGHT INDEXING)
+  ✅ mdworker_shared: 8.1% CPU (LIGHT INDEXING)
+💡 Spotlight is rebuilding index (high CPU is temporary)
+   ⏰ Expected: 30-60 minutes for completion
+   🌡️  System may be warm during this process
+   ❌ Don't interrupt: Let indexing complete naturally
+📍 Spotlight indexing: Enabled
+
+🔍 System Process Analysis
+Critical system processes status:
+✅ launchd: 0.1% CPU (NORMAL)
+ℹ️  kernel_task: Not running or not found
+✅ logd: 0.2% CPU (NORMAL)
+✅ WindowServer: 2.1% CPU (NORMAL)
+✅ loginwindow: 0.0% CPU (NORMAL)
+✅ launchservicesd: 0.1% CPU (NORMAL)
+✅ runningboardd: 0.8% CPU (NORMAL)
+
+✅ All system processes healthy
+
+💾 Memory Usage Analysis
+Top memory consumers:
+  52946  root         6.6%    542 MB /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+  52567  root         0.3%     24 MB /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+  910    sahan        0.8%     65 MB /Users/sahan/Applications/WebStorm.app/Contents/MacOS/webstorm
+  167    _windowserver 0.7%     57 MB /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  895    sahan        1.2%     98 MB /Applications/Brave
+
+✅ No excessive memory usage detected
+
+🚨 System Issues Detection
+🔥 High CPU processes (>50%):
+  PID 52946 (root): 338.0% - /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+  PID 52567 (root): 58.6% - /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+💡 Action: Identify what these processes are doing, quit if necessary
+
+⚠️  1 issue(s) detected - review recommendations above
+
+📈 System Activity Context
+📍 Spotlight: Active (may cause temporary high CPU/disk usage)
+💾 Time Machine: Not running
+🔄 Software updates: System up to date
+
+💡 Quick Action Guide
+Based on current system status:
+🔍 Spotlight indexing active
+   1. This is temporary (30-60 minutes typical)
+   2. System may run warm during indexing
+   3. Avoid intensive tasks during indexing
+   4. Do NOT force-quit Spotlight processes
+
+✅ Health check complete.
+💡 Pro tip: Run 'sudo dmesg | tail -20' to check recent system messages
+💡 For detailed logs: Console.app or 'log show --last 1h --info'
