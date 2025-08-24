@@ -6,6 +6,26 @@
 
 A comprehensive, intelligent macOS system health monitoring script that provides actionable insights instead of just raw numbers.
 
+## 📂 Repository Structure:
+```bash
+macOS-Script-Bash-health_check/
+├── macos_health_check.sh           (Main script)
+├── README.md                       (Comprehensive documentation)  
+├── LICENSE                         (MIT License)
+├── CHANGELOG.md                   📝 (Version history - Professional version history and future roadmap)
+├── examples/                      📂 (Sample outputs - Real-world output examples that users can relate to)
+│   ├── normal_system.txt         📄 (Normal system example)
+│   ├── spotlight_rebuilding.txt  📄 (Your current situation!)
+│   └── system_overload.txt       📄 (Critical system state)
+├── docs/                         📂 (Additional documentation)
+│   ├── troubleshooting.md        📋 (Comprehensive problem-solving guide)
+│   └── advanced_usage.md         🚀 (Automation, monitoring, and integration examples)
+└── .github/                      📂 (New - GitHub integration)
+    ├── ISSUE_TEMPLATE.md         🐛 (Issue reporting template -  Structured issue reporting)
+    └── workflows/
+        └── test.yml              🧪 (Basic testing - Automated testing and validation)
+```
+
 ## 🌟 Features
 
 ### 🧠 Intelligent Analysis
