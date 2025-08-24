@@ -1,0 +1,103 @@
+🖥️  macOS Health Check Report
+Generated: Mon Aug 25 14:22:15 +0530 2025
+=========================================
+📊 System Overview
+macOS: 15.6.1
+Uptime: 5 days
+Load Averages: 18.45 (1m) 16.32 (5m) 14.87 (15m)
+CPU Cores: 8
+🚨 System Load: 230% (OVERLOADED - System struggling)
+   💡 Action: Identify heavy processes, consider restart if persistent
+RAM: 8 GB
+🚨 Memory Pressure: 8% free (CRITICAL)
+   💡 Action: Close apps, restart if needed, check for memory leaks
+Disk: 45Gi free of 460Gi (90% used) 🚨 CRITICAL
+   💡 Action: Free up space immediately, empty trash, clear caches
+
+🔥 CPU Usage Analysis (5-second average)
+Sampling processes for better accuracy...
+  PID USER              %CPU %MEM PROCESS
+ 8234 sahan            186.4  12.5 /Applications/Adobe Premiere Pro 2024/Adobe Premiere Pro 2024.app/Contents/MacOS/Adobe Premiere Pro 2024
+ 9456 sahan             89.2   8.3 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/139.0.7258.129/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+ 7821 sahan             67.8   6.2 /Applications/Docker.app/Contents/MacOS/Docker Desktop
+ 9823 root              45.7   2.1 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+    1 root              32.4   0.2 /sbin/launchd
+   97 root              28.9   0.3 /usr/libexec/logd
+  170 sahan             24.3   0.4 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+  139 root              18.7   0.2 /System/Library/CoreServices/launchservicesd
+ 9234 sahan             15.2   3.4 /Applications/IntelliJ IDEA Ultimate.app/Contents/bin/fsnotifier
+  167 _windowserver     12.8   1.2 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+
+🔍 CPU Analysis:
+🚨 Highest CPU: Adobe Premiere Pro 2024 (186.4%) - EXTREMELY HIGH
+   💡 Action: Investigate this process, may need to quit/restart
+
+🔍 Spotlight Indexing Status
+Active Spotlight processes:
+  ⚡ mds_stores: 45.7% CPU (ACTIVE INDEXING)
+💡 Spotlight is rebuilding index (high CPU is temporary)
+   ⏰ Expected: 30-60 minutes for completion
+   🌡️  System may be warm during this process
+   ❌ Don't interrupt: Let indexing complete naturally
+📍 Spotlight indexing: Enabled
+
+🔍 System Process Analysis
+Critical system processes status:
+🚨 launchd: 32.4% CPU (CRITICAL - System instability)
+   💡 Action: System restart recommended
+ℹ️  kernel_task: Not running or not found
+🚨 logd: 28.9% CPU (CRITICAL - System instability)
+   💡 Action: System restart recommended
+⚠️  WindowServer: 12.8% CPU (ELEVATED - Monitor closely)
+   💡 Action: Check system logs, consider restart if persistent
+⚠️  loginwindow: 24.3% CPU (ELEVATED - Monitor closely)
+   💡 Action: Check system logs, consider restart if persistent
+⚠️  launchservicesd: 18.7% CPU (ELEVATED - Monitor closely)
+   💡 Action: Check system logs, consider restart if persistent
+✅ runningboardd: 2.1% CPU (NORMAL)
+
+🚨 MULTIPLE SYSTEM ISSUES DETECTED
+💡 Recommended Action: System restart to reset daemons
+
+💾 Memory Usage Analysis
+Top memory consumers:
+  8234   sahan       12.5%   1024 MB /Applications/Adobe Premiere Pro 2024/Adobe Premiere Pro 2024.app/Contents/MacOS/Adobe Premiere Pro 2024
+  9456   sahan        8.3%    680 MB /Applications/Google
+  7821   sahan        6.2%    508 MB /Applications/Docker.app/Contents/MacOS/Docker Desktop
+  9234   sahan        3.4%    279 MB /Applications/IntelliJ IDEA Ultimate.app/Contents/bin/fsnotifier
+  9823   root         2.1%    172 MB /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+
+🐘 Processes using >1GB RAM:
+  PID 8234: 1024MB - /Applications/Adobe Premiere Pro 2024/Adobe Premiere Pro 2024.app/Contents/MacOS/Adobe Premiere Pro 2024
+💡 Action: Check if these memory levels are normal for these apps
+
+🚨 System Issues Detection
+🔥 High CPU processes (>50%):
+  PID 8234 (sahan): 186.4% - /Applications/Adobe Premiere Pro 2024/Adobe Premiere Pro 2024.app/Contents/MacOS/Adobe Premiere Pro 2024
+  PID 9456 (sahan): 89.2% - /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/139.0.7258.129/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  PID 7821 (sahan): 67.8% - /Applications/Docker.app/Contents/MacOS/Docker Desktop
+💡 Action: Identify what these processes are doing, quit if necessary
+
+📊 Apps with many processes (>15):
+  Google Chrome Helper: 24 processes
+  Docker: 18 processes
+💡 Info: May be normal for some apps, but monitor for issues
+
+⚠️  3 issue(s) detected - review recommendations above
+
+📈 System Activity Context
+📍 Spotlight: Active (may cause temporary high CPU/disk usage)
+💾 Time Machine: Running (may affect performance temporarily)
+🔄 Software updates: 2 available
+   💡 Tip: Install updates during low-usage periods
+
+💡 Quick Action Guide
+Based on current system status:
+🚨 URGENT: System overloaded
+   1. Close unnecessary applications immediately
+   2. Check Activity Monitor for resource hogs
+   3. Consider restart if issues persist
+
+✅ Health check complete.
+💡 Pro tip: Run 'sudo dmesg | tail -20' to check recent system messages
+💡 For detailed logs: Console.app or 'log show --last 1h --info'
