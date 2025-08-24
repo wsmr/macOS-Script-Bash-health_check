@@ -1,0 +1,75 @@
+🖥️  macOS Health Check Report
+Generated: Sun Aug 24 10:15:30 +0530 2025
+=========================================
+📊 System Overview
+macOS: 15.6.1
+Uptime: 2 days
+Load Averages: 2.1 (1m) 1.8 (5m) 2.0 (15m)
+CPU Cores: 8
+✅ System Load: 26% (HEALTHY)
+RAM: 8 GB
+✅ Memory Pressure: 65% free (GOOD)
+Disk: 180Gi free of 460Gi (62% used) ✅
+
+🔥 CPU Usage Analysis (5-second average)
+Sampling processes for better accuracy...
+  PID USER              %CPU %MEM PROCESS
+  910 sahan              8.2  1.2 /Users/sahan/Applications/WebStorm.app/Contents/MacOS/webstorm
+ 2301 sahan              4.1  0.8 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/139.0.7258.129/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  167 _windowserver      2.3  0.7 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  908 sahan              1.8  0.5 /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+  661 sahan              1.2  0.3 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+  895 sahan              1.1  1.8 /Applications/Brave Browser.app/Contents/MacOS/Brave Browser
+  136 root               0.9  0.1 /usr/libexec/opendirectoryd
+  171 root               0.8  0.1 /usr/libexec/runningboardd
+    1 root               0.5  0.1 /sbin/launchd
+   97 root               0.3  0.1 /usr/libexec/logd
+
+🔍 CPU Analysis:
+📊 Highest CPU: WebStorm (8.2%) - ELEVATED
+   💡 Info: Normal for active applications
+
+🔍 Spotlight Indexing Status
+✅ No active Spotlight indexing
+📍 Spotlight indexing: Enabled
+
+🔍 System Process Analysis
+Critical system processes status:
+✅ launchd: 0.5% CPU (NORMAL)
+ℹ️  kernel_task: Not running or not found
+✅ logd: 0.3% CPU (NORMAL)
+✅ WindowServer: 2.3% CPU (NORMAL)
+✅ loginwindow: 0.0% CPU (NORMAL)
+✅ launchservicesd: 0.1% CPU (NORMAL)
+✅ runningboardd: 0.8% CPU (NORMAL)
+
+✅ All system processes healthy
+
+💾 Memory Usage Analysis
+Top memory consumers:
+  895    sahan        1.8%    147 MB /Applications/Brave
+  910    sahan        1.2%     98 MB /Users/sahan/Applications/WebStorm.app/Contents/MacOS/webstorm
+  2301   sahan        0.8%     65 MB /Applications/Google
+  167    _windowserver 0.7%     57 MB /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  908    sahan        0.5%     41 MB /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+
+✅ No excessive memory usage detected
+
+🚨 System Issues Detection
+✅ No critical issues detected
+
+📈 System Activity Context
+📍 Spotlight: Inactive
+💾 Time Machine: Not running
+🔄 Software updates: System up to date
+
+💡 Quick Action Guide
+Based on current system status:
+✅ System appears healthy
+   1. Continue normal usage
+   2. Monitor if any specific issues arise
+   3. Run this check again if performance degrades
+
+✅ Health check complete.
+💡 Pro tip: Run 'sudo dmesg | tail -20' to check recent system messages
+💡 For detailed logs: Console.app or 'log show --last 1h --info'
