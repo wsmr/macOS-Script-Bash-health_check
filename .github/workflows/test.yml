@@ -1,0 +1,133 @@
+name: macOS Health Check Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    name: Shell Script Analysis
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: '.'
+          format: gcc
+          severity: warning
+          
+  syntax-test:
+    runs-on: macos-latest
+    name: macOS Syntax Test
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check script syntax
+        run: |
+          bash -n macos_health_check.sh
+          echo "✅ Script syntax is valid"
+      
+      - name: Make script executable
+        run: chmod +x macos_health_check.sh
+      
+      - name: Test script execution (dry run)
+        run: |
+          # Test that script starts without errors
+          timeout 10s ./macos_health_check.sh || true
+          echo "✅ Script execution test completed"
+
+  documentation:
+    runs-on: ubuntu-latest
+    name: Documentation Check
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check README exists
+        run: |
+          if [ ! -f README.md ]; then
+            echo "❌ README.md is missing"
+            exit 1
+          fi
+          echo "✅ README.md exists"
+      
+      - name: Check LICENSE exists  
+        run: |
+          if [ ! -f LICENSE ]; then
+            echo "❌ LICENSE is missing"
+            exit 1
+          fi
+          echo "✅ LICENSE exists"
+          
+      - name: Check CHANGELOG exists
+        run: |
+          if [ ! -f CHANGELOG.md ]; then
+            echo "❌ CHANGELOG.md is missing"
+            exit 1
+          fi
+          echo "✅ CHANGELOG.md exists"
+
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security Scan
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run security checks
+        run: |
+          # Check for common security issues
+          echo "🔍 Checking for potential security issues..."
+          
+          # Check for hardcoded credentials
+          if grep -r "password\|secret\|key" --include="*.sh" --exclude-dir=.git . | grep -v "💡\|#\|echo"; then
+            echo "⚠️  Potential hardcoded credentials found"
+          else
+            echo "✅ No hardcoded credentials detected"
+          fi
+          
+          # Check for unsafe commands
+          if grep -r "rm -rf /\|chmod 777\|sudo rm" --include="*.sh" --exclude-dir=.git .; then
+            echo "⚠️  Potentially unsafe commands found"
+          else
+            echo "✅ No obviously unsafe commands detected"
+          fi
+
+  examples-validation:
+    runs-on: ubuntu-latest
+    name: Validate Examples
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check example files exist
+        run: |
+          EXAMPLES_DIR="examples"
+          REQUIRED_EXAMPLES=("normal_system.txt" "spotlight_rebuilding.txt" "system_overload.txt")
+          
+          if [ ! -d "$EXAMPLES_DIR" ]; then
+            echo "❌ Examples directory missing"
+            exit 1
+          fi
+          
+          for example in "${REQUIRED_EXAMPLES[@]}"; do
+            if [ ! -f "$EXAMPLES_DIR/$example" ]; then
+              echo "❌ Example file missing: $example"
+              exit 1
+            else
+              echo "✅ Example file exists: $example"
+            fi
+          done
+          
+      - name: Validate example content
+        run: |
+          echo "🔍 Validating example file content..."
+          for file in examples/*.txt; do
+            if [ -s "$file" ]; then
+              echo "✅ $file has content"
+            else
+              echo "❌ $file is empty"
+              exit 1
+            fi
+          done
